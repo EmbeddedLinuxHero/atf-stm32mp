@@ -15,13 +15,11 @@
 #include <dt-bindings/soc/st,stm32-etzpc.h>
 
 / {
-	model = "THATICO STM32MP151AAA3 1GB V1.1 Board";
+	model = "STMicroelectronics STM32MP157A-DK1 Discovery Board";
 	compatible = "st,stm32mp151a-kiwi", "st,stm32mp151";
 
 	aliases {
 		serial0 = &uart4;
-		serial1 = &usart3;
-		serial2 = &usart2;
 	};
 
 	chosen {
