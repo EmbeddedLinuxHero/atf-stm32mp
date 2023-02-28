@@ -49,7 +49,6 @@
 	i2c-scl-falling-time-ns = <20>;
 	clock-frequency = <400000>;
 	status = "okay";
-	secure-status = "okay";
 
 	pmic: stpmic@33 {
 		compatible = "st,stpmic1";
@@ -58,7 +57,6 @@
 		interrupt-controller;
 		#interrupt-cells = <2>;
 		status = "okay";
-		secure-status = "okay";
 
 		regulators {
 			compatible = "st,stpmic1-regulators";
@@ -114,17 +112,17 @@
 				regulator-initial-mode = <0>;
 			};
 
-			v1v8_audio: ldo1 {
-				regulator-name = "v1v8_audio";
+			v1v8: ldo1 {
+				regulator-name = "v1v8";
 				regulator-min-microvolt = <1800000>;
 				regulator-max-microvolt = <1800000>;
 				regulator-always-on;
 			};
 
-			v3v3_hdmi: ldo2 {
-				regulator-name = "v3v3_hdmi";
-				regulator-min-microvolt = <3300000>;
-				regulator-max-microvolt = <3300000>;
+			v2v8: ldo2 {
+				regulator-name = "v2v8";
+				regulator-min-microvolt = <2800000>;
+				regulator-max-microvolt = <2800000>;
 				regulator-always-on;
 			};
 
@@ -148,8 +146,8 @@
 				regulator-boot-on;
 			};
 
-			v1v2_hdmi: ldo6 {
-				regulator-name = "v1v2_hdmi";
+			v1v2: ldo6 {
+				regulator-name = "v1v2";
 				regulator-min-microvolt = <1200000>;
 				regulator-max-microvolt = <1200000>;
 				regulator-always-on;
@@ -354,6 +352,18 @@
 	status = "okay";
 };
 
+&usart2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart2_pins_x>;
+	status = "okay";
+};
+
+&usart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart3_pins_x>;
+	status = "okay";
+};
+
 &usbotg_hs {
 	phys = <&usbphyc_port1 0>;
 	phy-names = "usb2-phy";
@@ -374,7 +384,7 @@
 };
 
 /* Low-power states of regulators */
-&v1v2_hdmi {
+&v1v2 {
 	standby-ddr-sr {
 		regulator-off-in-suspend;
 	};
@@ -383,7 +393,7 @@
 	};
 };
 
-&v1v8_audio {
+&v1v8 {
 	standby-ddr-sr {
 		regulator-off-in-suspend;
 	};
@@ -405,7 +415,7 @@
 	};
 };
 
-&v3v3_hdmi {
+&v2v8 {
 	standby-ddr-sr {
 		regulator-off-in-suspend;
 	};
