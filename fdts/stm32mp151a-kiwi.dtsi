@@ -354,6 +354,18 @@
 	status = "okay";
 };
 
+&usart2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart2_pins_x>;
+	status = "okay";
+};
+
+&usart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart3_pins_x>;
+	status = "okay";
+};
+
 &usbotg_hs {
 	phys = <&usbphyc_port1 0>;
 	phy-names = "usb2-phy";
